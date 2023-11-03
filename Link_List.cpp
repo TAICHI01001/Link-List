@@ -51,6 +51,39 @@ class LinkList{
             }
             return false; //* Value not found
         }
+
+        bool remove(int targetValue){
+            if(!head){
+                return false;
+            }
+
+            if(head->data ==targetValue){
+                Node *temp = head;
+                head = head->next;
+                delete temp;
+                return true;
+            }
+
+            Node *current = head;
+            while(current->next){
+                if(current->next->data == targetValue){
+                    Node *temp =current->next;
+                    current->next = current->next->next;
+                    delete temp;
+                    return true;
+                }
+                current = current->next;
+            }
+            return false; // Value not found
+        }
+
+         ~LinkList() {
+            while (head) {
+                Node* temp = head;
+                head = head->next;
+                delete temp;
+            }
+        }
 };
 
 int main(){
@@ -70,6 +103,10 @@ int main(){
 
     list.update(8,51);
 
+    list.print();
+
+    list.remove(4);
+    
     list.print();
 
 }
