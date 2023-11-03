@@ -3,10 +3,11 @@
 using namespace std;
 
 class Node{
-    int data;
-    Node *next;
+    public:
+        int data;
+        Node *next;
 
-    Node(int value):data(value),next(NULL){}
+        Node(int value):data(value),next(NULL){}
 };
 
 class LinkList{
@@ -15,20 +16,42 @@ class LinkList{
         
         LinkList():head(NULL){}
 
+        //! Create
         void append(int value){
             Node *newNode = new Node(value);
             if(!head){
                 head = newNode;
             }else{
                 Node *current = head;
-                While(current->next){
+                while(current->next){
                     current = current->next;
                 }
                 current->next = newNode;
             }
         }
+
+        void print(){
+            Node *current = head;
+            while(current){
+                cout<< current->data <<" next -> ";
+                current = current->next;
+            }
+            cout<<"NULL \n";
+        }
 };
 
 int main(){
-    cout<<"We will learn the data structure Link_List";
+
+    cout<<"------------------------------------------ \n";
+    cout<<"We will learn the data structure Link_List \n";
+    cout<<"------------------------------------------ \n";
+
+    LinkList list;
+    list.append(2);
+    list.append(8);
+    list.append(22);
+    list.append(4);
+
+    list.print();
+
 }
