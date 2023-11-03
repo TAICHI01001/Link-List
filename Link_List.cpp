@@ -40,10 +40,10 @@ class LinkList{
         }
 
         //update modify value
-        void update(int targetValue,int newValue){
+        bool update(int targetValue,int newValue){
             Node *current = head;
             while(current){
-                if(current-data == targetValue){
+                if(current->data == targetValue){
                     current->data = newValue;
                     return true;
                 }
@@ -60,10 +60,15 @@ int main(){
     cout<<"------------------------------------------ \n";
 
     LinkList list;
+    
     list.append(2);
     list.append(8);
     list.append(22);
     list.append(4);
+
+    list.print();
+
+    list.update(8,51);
 
     list.print();
 
