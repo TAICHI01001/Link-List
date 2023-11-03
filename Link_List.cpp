@@ -77,7 +77,7 @@ class LinkList{
             return false; // Value not found
         }
 
-         ~LinkList() {
+        ~LinkList() {
             while (head) {
                 Node* temp = head;
                 head = head->next;
