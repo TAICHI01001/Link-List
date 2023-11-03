@@ -38,6 +38,19 @@ class LinkList{
             }
             cout<<"NULL \n";
         }
+
+        //update modify value
+        void update(int targetValue,int newValue){
+            Node *current = head;
+            while(current){
+                if(current-data == targetValue){
+                    current->data = newValue;
+                    return true;
+                }
+                current = current->next;
+            }
+            return false; //* Value not found
+        }
 };
 
 int main(){
